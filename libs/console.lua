@@ -37,7 +37,8 @@ end
 
 function console.log(message)
     print(message)
-    if coroutine.running() then
+    local thread, unyieldable = coroutine.running()
+    if not unyieldable then
         coroutine.yield()
     end
 end
