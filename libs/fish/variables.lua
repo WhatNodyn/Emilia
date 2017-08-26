@@ -1,8 +1,7 @@
 local config = require("libs.config")
 local console = require("libs.console")
 local scope = {
-    variables = {},
-    run = true
+    variables = {}
 }
 
 function scope:inherit()
@@ -15,7 +14,6 @@ function scope:inherit()
 
     new = setmetatable(new, {__index = self})
     new.variables = setmetatable({}, {__index = self.variables})
-    new.run = true
     new.parent = self
 
     return new
